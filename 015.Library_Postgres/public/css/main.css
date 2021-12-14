@@ -1,0 +1,35 @@
+h1, h2 {
+  text-align: center;
+}
+
+input, select {
+  margin-bottom: 10px;
+} 
+
+.container {
+  max-width: 1120px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.admin-panel {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.users {
+  width: 32%;
+  padding: 10px;
+}
+
+.books {
+  width: 32%;
+  border-left: 1px solid #1d1d1d;
+  border-right: 1px solid #1d1d1d;
+  padding: 10px;
+}
+.authors {
+  width: 32%;
+  padding: 10px;
+}

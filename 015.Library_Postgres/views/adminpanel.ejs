@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <section class="content">
+    <div class="container">
+      <div class="wrapper">
+        
+        <h1>Elektron kutubxona</h1>
+        <div class="admin-panel">
+          <div class="users">
+            <h2>Users</h2>
+            <ul class="users-list">
+              <% data.users.forEach((user) => { %>
+              <li class="users-list-item">
+                <p><%= user.name %> - <a href="#"><%= user.login %></a></p>
+              </li>
+              <% }) %>
+            </ul>
+          </div>
+          <div class="books">
+            <h2>Books</h2>
+            <ul class="books-list">
+              <% data.books.forEach((book) => { %>
+              <li class="books-list-item">
+                <p>Kitob nomi: <%= book.title %></p>
+                <p>Muallifi: <%=  book.name %></p>
+                <p>Soni: <%= book.qty %></p>
+              </li>
+              <% }) %>
+            </ul>
+            <hr>
+            <form action="/addbook" method="POST">
+
+              <input type="text" name="title" required placeholder="Book title"/><br/>
+              <label for="select-author">Select author</label>
+              <select name="author" id="select-author">
+                <% data.authors.forEach((author) => { %>
+                <option value="<%= author.id %>"><%= author.name %></option>
+                <% }) %>
+              </select> <br>
+              <input type="number" name="qty" placeholder="Book quantity"/><br/>
+
+              <button class="admin-add-btn" type="submit">Add book</button>
+            </form>
+          </div>
+          <div class="authors">
+            <h2>Authors</h2>
+            <ul class="authors-list">
+              <% data.authors.forEach((author) => { %>
+              <li class="authors-list-item">
+                <p><%= author.name %></p>
+              </li>
+              <% }) %>
+            </ul>
+            <hr>
+            <form action="/addauthor" method="POST">
+
+              <input type="text" name="name" required placeholder="Author name"/><br/>
+
+              <button class="admin-add-btn" type="submit">Add author</button>
+            </form>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</body>
+</html>
